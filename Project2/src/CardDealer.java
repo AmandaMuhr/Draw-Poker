@@ -9,6 +9,8 @@ public class CardDealer
 				DeckCreator.fillCardDeck();
 				shuffleCards();
 				dealCards();
+				printPlayer1Cards();
+				printPlayer2Cards();
 			}
 
 		public static void shuffleCards()
@@ -18,16 +20,43 @@ public class CardDealer
 
 		public static void dealCards()
 			{
-				System.out.println("Here is your hand:");
-				System.out.println("");
-				for (int i = 0; i < 5; i++)
+				for (int i = 0; i < 10; i++)
 					{
-						Hand.hand.add(DeckCreator.deck.get(0));
-						DeckCreator.deck.remove(0);
+						if (i % 2 == 0)
+							{
+								Hand.hand1.add(DeckCreator.deck.get(0));
+								DeckCreator.deck.remove(0);
+							}
+						else if (i % 2 == 1)
+							{
+								Hand.hand2.add(DeckCreator.deck.get(0));
+								DeckCreator.deck.remove(0);
+							}
+							else
+							{
+								System.out.println("That's a problem...");
+							}
 					}
-				for (int a = 0; a < Hand.hand.size(); a++)
+			}
+
+		public static void printPlayer1Cards()
+			{
+				System.out.println("Player 1, here is your hand:");
+				System.out.println("");
+				for (int a = 0; a < Hand.hand1.size(); a++)
 					{
-						System.out.println(Hand.hand.get(a).getName() + " of " + Hand.hand.get(a).getSuit());
+						System.out.println(Hand.hand1.get(a).getName() + " of " + Hand.hand1.get(a).getSuit());
+					}
+			}
+
+		public static void printPlayer2Cards()
+			{
+				System.out.println("");
+				System.out.println("Player 2, here is your hand:");
+				System.out.println("");
+				for (int a = 0; a < Hand.hand2.size(); a++)
+					{
+						System.out.println(Hand.hand2.get(a).getName() + " of " + Hand.hand2.get(a).getSuit());
 					}
 			}
 	}
