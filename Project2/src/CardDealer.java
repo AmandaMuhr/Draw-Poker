@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.Scanner;
 
 public class CardDealer
 	{
@@ -26,13 +27,11 @@ public class CardDealer
 							{
 								Hand.hand1.add(DeckCreator.deck.get(0));
 								DeckCreator.deck.remove(0);
-							}
-						else if (i % 2 == 1)
+							} else if (i % 2 == 1)
 							{
 								Hand.hand2.add(DeckCreator.deck.get(0));
 								DeckCreator.deck.remove(0);
-							}
-							else
+							} else
 							{
 								System.out.println("That's a problem...");
 							}
@@ -45,7 +44,8 @@ public class CardDealer
 				System.out.println("");
 				for (int a = 0; a < Hand.hand1.size(); a++)
 					{
-						System.out.println(Hand.hand1.get(a).getName() + " of " + Hand.hand1.get(a).getSuit());
+						System.out.println((a + 1) + "." + Hand.hand1.get(a).getName() + " of "
+								+ Hand.hand1.get(a).getSuit() + " (" + Hand.hand1.get(a).getColor() + ")");
 					}
 			}
 
@@ -56,7 +56,8 @@ public class CardDealer
 				System.out.println("");
 				for (int a = 0; a < Hand.hand2.size(); a++)
 					{
-						System.out.println(Hand.hand2.get(a).getName() + " of " + Hand.hand2.get(a).getSuit());
+						System.out.println((a + 1) + ". " + Hand.hand2.get(a).getName() + " of "
+								+ Hand.hand2.get(a).getSuit() + " (" + Hand.hand2.get(a).getColor() + ")");
 					}
 			}
 	}

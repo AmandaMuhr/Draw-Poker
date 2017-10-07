@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-//Create int "handValue" to compare which hand wins
-
 public class Hand
 	{
 		
