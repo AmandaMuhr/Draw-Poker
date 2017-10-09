@@ -6,8 +6,9 @@ public class HandValueAssignments
 		static int hand2Value = 0;
 		static boolean colorIsTheSame;
 		static boolean numbersAreConsecutive;
-		static boolean [] pair = new boolean [5];
-		
+		static boolean[] pair = new boolean[5];
+		static int trueCount;
+
 		// nothing = 0 (high card)
 		// pair = 1 (two of the same rank)
 		// two pair = 2 (two of the same rank, and two of another rank)
@@ -216,23 +217,48 @@ public class HandValueAssignments
 					}
 			}
 
-		public static void checkThreeOfAKindHand1()
-			{
 
-			}
-
-		public static void checkTwoPairHand1()
-			{
-
-			}
-
-		public static void checkPairHand1()
+		public static void checkPairTwoPairAndThreeOfAKindHand1()
 			{
 				for (int i = 0; i < Hand.hand1.size(); i++)
 					{
-						Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
+						pair[i] = Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
 					}
-				
+				for (int i = 0; i < Hand.hand1.size(); i++)
+					{
+						pair[i] = Hand.hand1.get(1).getCardValue() == (Hand.hand1.get(i).getCardValue());
+					}
+				for (int i = 0; i < Hand.hand1.size(); i++)
+					{
+						pair[i] = Hand.hand1.get(2).getCardValue() == (Hand.hand1.get(i).getCardValue());
+					}
+				for (int i = 0; i < Hand.hand1.size(); i++)
+					{
+						pair[i] = Hand.hand1.get(3).getCardValue() == (Hand.hand1.get(i).getCardValue());
+					}
+				for (int i = 0; i < Hand.hand1.size(); i++)
+					{
+						pair[i] = Hand.hand1.get(4).getCardValue() == (Hand.hand1.get(i).getCardValue());
+					}
+				for (int i = 0; i < pair.length; i++)
+					{
+						if (pair[i] == true)
+							{
+								trueCount++;
+							}
+					}
+				if (trueCount == 2)
+					{
+						hand1Value = 1;
+					}
+				else if (trueCount == 3)
+					{
+						hand1Value = 3;
+					}
+				else if (trueCount == 4)
+					{
+						hand1Value = 7;
+					}
 			}
 
 		public static void checkNothingHand1()
