@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class HandComparison
+public class HandValueAssignments
 	{
 		static int hand1Value = 0;
 		static int hand2Value = 0;
@@ -181,27 +181,54 @@ public class HandComparison
 
 		public static void checkFlushHand1()
 			{
-
+				checkIfColorIsTheSameHand1();
+				if (colorIsTheSame)
+					{
+						hand1Value = 5;
+					}
 			}
 
+		public static void checkFlushHand2()
+			{
+				checkIfColorIsTheSameHand2();
+				if (colorIsTheSame)
+					{
+						hand2Value = 5;
+					}
+			}
+		
 		public static void checkStraightHand1()
 			{
-
+				checkIfNumbersAreConsecutiveHand1();
+				if (numbersAreConsecutive)
+					{
+						hand1Value = 4;
+					}
+				//hows it going
+			}
+		
+		public static void checkStraightHand2()
+			{
+				checkIfNumbersAreConsecutiveHand2();
+				if (numbersAreConsecutive)
+					{
+						hand2Value = 4;
+					}
 			}
 
 		public static void checkThreeOfAKindHand1()
 			{
-
+				
 			}
 
 		public static void checkTwoPairHand1()
 			{
-
+				
 			}
 
 		public static void checkPairHand1()
 			{
-
+				
 			}
 
 		public static void checkNothingHand1()
