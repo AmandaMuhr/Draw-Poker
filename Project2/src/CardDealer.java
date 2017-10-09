@@ -11,7 +11,8 @@ public class CardDealer
 				shuffleCards();
 				dealCards();
 				printPlayer1Cards();
-				printPlayer2Cards();
+				HandValueAssignments.checkPairHand1();
+//				printPlayer2Cards();
 			}
 
 		public static void shuffleCards()
@@ -49,15 +50,15 @@ public class CardDealer
 					}
 			}
 
-		public static void printPlayer2Cards()
-			{
-				System.out.println("");
-				System.out.println("Player 2, here is your hand:");
-				System.out.println("");
-				for (int a = 0; a < Hand.hand2.size(); a++)
-					{
-						System.out.println(Hand.hand2.get(a).getName() + " of "
-								+ Hand.hand2.get(a).getSuit() + " (" + Hand.hand2.get(a).getColor() + ")");
-					}
-			}
+//		public static void printPlayer2Cards()
+//			{
+//				System.out.println("");
+//				System.out.println("Player 2, here is your hand:");
+//				System.out.println("");
+//				for (int a = 0; a < Hand.hand2.size(); a++)
+//					{
+//						System.out.println(Hand.hand2.get(a).getName() + " of "
+//								+ Hand.hand2.get(a).getSuit() + " (" + Hand.hand2.get(a).getColor() + ")");
+//					}
+//			}
 	}

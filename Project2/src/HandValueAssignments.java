@@ -6,7 +6,8 @@ public class HandValueAssignments
 		static int hand2Value = 0;
 		static boolean colorIsTheSame;
 		static boolean numbersAreConsecutive;
-
+		static boolean [] pair = new boolean [5];
+		
 		// nothing = 0 (high card)
 		// pair = 1 (two of the same rank)
 		// two pair = 2 (two of the same rank, and two of another rank)
@@ -227,6 +228,10 @@ public class HandValueAssignments
 
 		public static void checkPairHand1()
 			{
+				for (int i = 0; i < Hand.hand1.size(); i++)
+					{
+						Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
+					}
 				
 			}
 
