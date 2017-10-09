@@ -12,6 +12,7 @@ public class CardDealer
 				dealCards();
 				printPlayer1Cards();
 				printPlayer2Cards();
+				HandValueComparisons.handValueComparisons();
 			}
 
 		public static void shuffleCards()
