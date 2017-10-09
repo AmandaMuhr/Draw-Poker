@@ -44,7 +44,7 @@ public class CardDealer
 				System.out.println("");
 				for (int a = 0; a < Hand.hand1.size(); a++)
 					{
-						System.out.println((a + 1) + "." + Hand.hand1.get(a).getName() + " of "
+						System.out.println( Hand.hand1.get(a).getName() + " of "
 								+ Hand.hand1.get(a).getSuit() + " (" + Hand.hand1.get(a).getColor() + ")");
 					}
 			}
@@ -56,7 +56,7 @@ public class CardDealer
 				System.out.println("");
 				for (int a = 0; a < Hand.hand2.size(); a++)
 					{
-						System.out.println((a + 1) + ". " + Hand.hand2.get(a).getName() + " of "
+						System.out.println(Hand.hand2.get(a).getName() + " of "
 								+ Hand.hand2.get(a).getSuit() + " (" + Hand.hand2.get(a).getColor() + ")");
 					}
 			}
