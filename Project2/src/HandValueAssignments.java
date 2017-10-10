@@ -217,28 +217,11 @@ public class HandValueAssignments
 					}
 			}
 
-
-		public static void checkPairTwoPairAndThreeOfAKindHand1()
+		public static void checkPairThreeOfAKindAndFourOfAKindHand1()
 			{
 				for (int i = 0; i < Hand.hand1.size(); i++)
 					{
 						pair[i] = Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
-					}
-				for (int i = 0; i < Hand.hand1.size(); i++)
-					{
-						pair[i] = Hand.hand1.get(1).getCardValue() == (Hand.hand1.get(i).getCardValue());
-					}
-				for (int i = 0; i < Hand.hand1.size(); i++)
-					{
-						pair[i] = Hand.hand1.get(2).getCardValue() == (Hand.hand1.get(i).getCardValue());
-					}
-				for (int i = 0; i < Hand.hand1.size(); i++)
-					{
-						pair[i] = Hand.hand1.get(3).getCardValue() == (Hand.hand1.get(i).getCardValue());
-					}
-				for (int i = 0; i < Hand.hand1.size(); i++)
-					{
-						pair[i] = Hand.hand1.get(4).getCardValue() == (Hand.hand1.get(i).getCardValue());
 					}
 				for (int i = 0; i < pair.length; i++)
 					{

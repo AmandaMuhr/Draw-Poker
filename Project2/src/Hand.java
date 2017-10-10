@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hand
 	{
@@ -8,6 +9,11 @@ public class Hand
 		
 		public static void putCardsInOrderHand1()
 			{
-				
+				Collections.sort(Hand.hand1, new Hand1Sorter());
+			}
+		
+		public static void putCardsInOrderHand2()
+			{
+				Collections.sort(Hand.hand2, new Hand2Sorter());
 			}
 	}
