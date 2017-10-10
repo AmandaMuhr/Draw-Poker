@@ -10,9 +10,9 @@ public class CardDealer
 				DeckCreator.fillCardDeck();
 				shuffleCards();
 				dealCards();
-				printPlayer1Cards();
-				HandValueAssignments.checkPairHand1();
-//				printPlayer2Cards();
+				Hand.sortHand1();
+				Hand.sortHand2();
+				DisplayDeck.menu();
 			}
 
 		public static void shuffleCards()
@@ -38,27 +38,4 @@ public class CardDealer
 							}
 					}
 			}
-
-		public static void printPlayer1Cards()
-			{
-				System.out.println("Player 1, here is your hand:");
-				System.out.println("");
-				for (int a = 0; a < Hand.hand1.size(); a++)
-					{
-						System.out.println( Hand.hand1.get(a).getName() + " of "
-								+ Hand.hand1.get(a).getSuit() + " (" + Hand.hand1.get(a).getColor() + ")");
-					}
-			}
-
-//		public static void printPlayer2Cards()
-//			{
-//				System.out.println("");
-//				System.out.println("Player 2, here is your hand:");
-//				System.out.println("");
-//				for (int a = 0; a < Hand.hand2.size(); a++)
-//					{
-//						System.out.println(Hand.hand2.get(a).getName() + " of "
-//								+ Hand.hand2.get(a).getSuit() + " (" + Hand.hand2.get(a).getColor() + ")");
-//					}
-//			}
 	}

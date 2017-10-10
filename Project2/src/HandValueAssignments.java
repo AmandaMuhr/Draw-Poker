@@ -6,8 +6,11 @@ public class HandValueAssignments
 		static int hand2Value = 0;
 		static boolean colorIsTheSame;
 		static boolean numbersAreConsecutive;
-		static boolean[] pair = new boolean[5];
+		static boolean[] pairHand1 = new boolean[5];
+		static boolean[] pairHand2 = new boolean[5];
 		static int trueCount;
+		static int valueOfHighestCardHand1;
+		static int valueOfHighestCardHand2;
 
 		// nothing = 0 (high card)
 		// pair = 1 (two of the same rank)
@@ -19,6 +22,71 @@ public class HandValueAssignments
 		// four of a kind = 7 (four of the same card)
 		// straight flush = 8 (any numbers in a row, and same suit)
 		// royal flush = 9 (10, J, Q, K, A)
+
+		public static void mainButNotReally()
+			{
+				//HAND 1
+				checkRoyalFlushHand1();
+				if (hand1Value < 8)
+					{
+						checkStraightFlushHand1();
+						if (hand1Value < 7)
+							{
+								checkFourOfAKindHand1();
+								if (hand1Value < 6)
+									{
+										checkFullHouseHand1();
+										if (hand1Value < 5)
+											{
+												checkFlushHand1();
+												if (hand1Value < 4)
+													{
+														checkStraightHand1();
+														if (hand1Value < 3)
+															{
+																checkPairThreeOfAKindAndFourOfAKindHand1();
+																if (hand1Value < 1)
+																	{
+																		findHighestCardHand1();
+																	}
+															}
+													}
+											}
+									}
+							}
+					}
+				
+				//HAND 2
+				checkRoyalFlushHand2();
+				if (hand2Value < 8)
+					{
+						checkStraightFlushHand2();
+						if (hand2Value < 7)
+							{
+								checkFourOfAKindHand2();
+								if (hand2Value < 6)
+									{
+										checkFullHouseHand2();
+										if (hand2Value < 5)
+											{
+												checkFlushHand2();
+												if (hand2Value < 4)
+													{
+														checkStraightHand2();
+														if (hand2Value < 3)
+															{
+																checkPairThreeOfAKindAndFourOfAKindHand2();
+																if (hand2Value < 1)
+																	{
+																		findHighestCardHand2();
+																	}
+															}
+													}
+											}
+									}
+							}
+					}
+			}
 
 		public static void checkIfColorIsTheSameHand1()
 			{
@@ -219,13 +287,14 @@ public class HandValueAssignments
 
 		public static void checkPairThreeOfAKindAndFourOfAKindHand1()
 			{
+				trueCount = 0;
 				for (int i = 0; i < Hand.hand1.size(); i++)
 					{
-						pair[i] = Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
+						pairHand1[i] = Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
 					}
-				for (int i = 0; i < pair.length; i++)
+				for (int i = 0; i < pairHand1.length; i++)
 					{
-						if (pair[i] == true)
+						if (pairHand1[i] == true)
 							{
 								trueCount++;
 							}
@@ -233,19 +302,48 @@ public class HandValueAssignments
 				if (trueCount == 2)
 					{
 						hand1Value = 1;
-					}
-				else if (trueCount == 3)
+					} else if (trueCount == 3)
 					{
 						hand1Value = 3;
-					}
-				else if (trueCount == 4)
+					} else if (trueCount == 4)
 					{
 						hand1Value = 7;
 					}
 			}
 
-		public static void checkNothingHand1()
+		public static void checkPairThreeOfAKindAndFourOfAKindHand2()
 			{
+				trueCount = 0;
+				for (int i = 0; i < Hand.hand2.size(); i++)
+					{
+						pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
+					}
+				for (int i = 0; i < pairHand2.length; i++)
+					{
+						if (pairHand2[i] == true)
+							{
+								trueCount++;
+							}
+					}
+				if (trueCount == 2)
+					{
+						hand2Value = 1;
+					} else if (trueCount == 3)
+					{
+						hand2Value = 3;
+					} else if (trueCount == 4)
+					{
+						hand2Value = 7;
+					}
+			}
 
+		public static void findHighestCardHand1()
+			{
+				valueOfHighestCardHand1 = Hand.hand1.get(0).getCardValue();
+			}
+
+		public static void findHighestCardHand2()
+			{
+				valueOfHighestCardHand2 = Hand.hand2.get(0).getCardValue();
 			}
 	}
