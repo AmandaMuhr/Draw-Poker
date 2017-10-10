@@ -25,61 +25,56 @@ public class HandValueAssignments
 
 		public static void mainButNotReally()
 			{
-				//HAND 1
+				// HAND 1
 				checkRoyalFlushHand1();
 				if (hand1Value < 8)
 					{
 						checkStraightFlushHand1();
 						if (hand1Value < 7)
 							{
-								checkFourOfAKindHand1();
-								if (hand1Value < 6)
+								checkFullHouseHand1();
+								if (hand1Value < 5)
 									{
-										checkFullHouseHand1();
-										if (hand1Value < 5)
+										checkFlushHand1();
+										if (hand1Value < 4)
 											{
-												checkFlushHand1();
-												if (hand1Value < 4)
+												checkStraightHand1();
+												if (hand1Value < 3)
 													{
-														checkStraightHand1();
-														if (hand1Value < 3)
+														checkTwoPairHand1();
+														if (hand1Value < 1)
 															{
-																checkPairThreeOfAKindAndFourOfAKindHand1();
-																if (hand1Value < 1)
-																	{
-																		findHighestCardHand1();
-																	}
+														checkPairThreeOfAKindAndFourOfAKindHand1();
+														if (hand1Value < 1)
+															{
+																findHighestCardHand1();
 															}
 													}
 											}
 									}
 							}
 					}
-				
-				//HAND 2
+
+				// HAND 2
 				checkRoyalFlushHand2();
 				if (hand2Value < 8)
 					{
 						checkStraightFlushHand2();
 						if (hand2Value < 7)
 							{
-								checkFourOfAKindHand2();
-								if (hand2Value < 6)
+								checkFullHouseHand2();
+								if (hand2Value < 5)
 									{
-										checkFullHouseHand2();
-										if (hand2Value < 5)
+										checkFlushHand2();
+										if (hand2Value < 4)
 											{
-												checkFlushHand2();
-												if (hand2Value < 4)
+												checkStraightHand2();
+												if (hand2Value < 3)
 													{
-														checkStraightHand2();
-														if (hand2Value < 3)
+														checkPairThreeOfAKindAndFourOfAKindHand2();
+														if (hand2Value < 1)
 															{
-																checkPairThreeOfAKindAndFourOfAKindHand2();
-																if (hand2Value < 1)
-																	{
-																		findHighestCardHand2();
-																	}
+																findHighestCardHand2();
 															}
 													}
 											}
@@ -239,14 +234,30 @@ public class HandValueAssignments
 					}
 			}
 
-		public static void checkFourOfAKindHand1()
-			{
-
-			}
-
 		public static void checkFullHouseHand1()
 			{
-
+						trueCount = 0;
+						for (int i = 0; i < Hand.hand2.size(); i++)
+							{
+								pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
+							}
+						for (int i = 0; i < pairHand2.length; i++)
+							{
+								if (pairHand2[i] == true)
+									{
+										trueCount++;
+									}
+							}
+						if (trueCount == 2)
+							{
+								hand2Value = 1;
+							} else if (trueCount == 3)
+							{
+								hand2Value = 3;
+							} else if (trueCount == 4)
+							{
+								hand2Value = 7;
+							}
 			}
 
 		public static void checkFlushHand1()
