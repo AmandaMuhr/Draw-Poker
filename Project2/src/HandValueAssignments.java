@@ -32,6 +32,9 @@ public class HandValueAssignments
 						checkStraightFlushHand1();
 						if (hand1Value < 7)
 							{
+								checkFourOfAKindHand1();
+								if (hand1Value < 6)
+									{
 								checkFullHouseHand1();
 								if (hand1Value < 5)
 									{
@@ -44,37 +47,42 @@ public class HandValueAssignments
 														checkTwoPairHand1();
 														if (hand1Value < 1)
 															{
-														checkPairThreeOfAKindAndFourOfAKindHand1();
-														if (hand1Value < 1)
-															{
-																findHighestCardHand1();
+																checkPairAndThreeOfAKindHand1();
+																if (hand1Value < 1)
+																	{
+																		findHighestCardHand1();
+																	}
 															}
 													}
 											}
 									}
 							}
-					}
 
-				// HAND 2
-				checkRoyalFlushHand2();
-				if (hand2Value < 8)
-					{
-						checkStraightFlushHand2();
-						if (hand2Value < 7)
+						// HAND 2
+						checkRoyalFlushHand2();
+						if (hand2Value < 8)
 							{
-								checkFullHouseHand2();
-								if (hand2Value < 5)
+								checkStraightFlushHand2();
+								if (hand2Value < 7)
 									{
-										checkFlushHand2();
-										if (hand2Value < 4)
+										checkFourOfAKindHand2();
+										if (hand2Value < 6)
 											{
-												checkStraightHand2();
-												if (hand2Value < 3)
+												checkFullHouseHand2();
+												if (hand2Value < 5)
 													{
-														checkPairThreeOfAKindAndFourOfAKindHand2();
-														if (hand2Value < 1)
+														checkFlushHand2();
+														if (hand2Value < 4)
 															{
-																findHighestCardHand2();
+																checkStraightHand2();
+																if (hand2Value < 3)
+																	{
+																		checkPairAndThreeOfAKindHand2();
+																		if (hand2Value < 1)
+																			{
+																				findHighestCardHand2();
+																			}
+																	}
 															}
 													}
 											}
@@ -236,28 +244,7 @@ public class HandValueAssignments
 
 		public static void checkFullHouseHand1()
 			{
-						trueCount = 0;
-						for (int i = 0; i < Hand.hand2.size(); i++)
-							{
-								pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
-							}
-						for (int i = 0; i < pairHand2.length; i++)
-							{
-								if (pairHand2[i] == true)
-									{
-										trueCount++;
-									}
-							}
-						if (trueCount == 2)
-							{
-								hand2Value = 1;
-							} else if (trueCount == 3)
-							{
-								hand2Value = 3;
-							} else if (trueCount == 4)
-							{
-								hand2Value = 7;
-							}
+				
 			}
 
 		public static void checkFlushHand1()
@@ -296,55 +283,55 @@ public class HandValueAssignments
 					}
 			}
 
-		public static void checkPairThreeOfAKindAndFourOfAKindHand1()
-			{
-				trueCount = 0;
-				for (int i = 0; i < Hand.hand1.size(); i++)
-					{
-						pairHand1[i] = Hand.hand1.get(0).getCardValue() == (Hand.hand1.get(i).getCardValue());
-					}
-				for (int i = 0; i < pairHand1.length; i++)
-					{
-						if (pairHand1[i] == true)
-							{
-								trueCount++;
-							}
-					}
-				if (trueCount == 2)
-					{
-						hand1Value = 1;
-					} else if (trueCount == 3)
-					{
-						hand1Value = 3;
-					} else if (trueCount == 4)
-					{
-						hand1Value = 7;
-					}
-			}
-
-		public static void checkPairThreeOfAKindAndFourOfAKindHand2()
+		public static void checkPairAndThreeOfAKindHand1()
 			{
 				trueCount = 0;
 				for (int i = 0; i < Hand.hand2.size(); i++)
 					{
-						pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
-					}
-				for (int i = 0; i < pairHand2.length; i++)
-					{
-						if (pairHand2[i] == true)
+						for (int a = 0; a < Hand.hand2.size(); a++)
 							{
-								trueCount++;
+								pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
+							}
+						for (int x = 0; x < pairHand2.length; x++)
+							{
+								if (pairHand2[i] == true)
+									{
+										trueCount++;
+									}
+							}
+						if (trueCount == 2)
+							{
+								hand2Value = 1;
+							} else if (trueCount == 3)
+							{
+								hand2Value = 3;
 							}
 					}
-				if (trueCount == 2)
+			}
+		
+		public static void checkPairAndThreeOfAKindHand2()
+			{
+				trueCount = 0;
+				for (int i = 0; i < Hand.hand2.size(); i++)
 					{
-						hand2Value = 1;
-					} else if (trueCount == 3)
-					{
-						hand2Value = 3;
-					} else if (trueCount == 4)
-					{
-						hand2Value = 7;
+						for (int a = 0; a < Hand.hand2.size(); a++)
+							{
+								pairHand2[i] = Hand.hand2.get(0).getCardValue() == (Hand.hand2.get(i).getCardValue());
+							}
+						for (int x = 0; x < pairHand2.length; x++)
+							{
+								if (pairHand2[i] == true)
+									{
+										trueCount++;
+									}
+							}
+						if (trueCount == 2)
+							{
+								hand2Value = 1;
+							} else if (trueCount == 3)
+							{
+								hand2Value = 3;
+							}
 					}
 			}
 
