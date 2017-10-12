@@ -13,6 +13,8 @@ public class CardDealer
 				Hand.sortHand1();
 				Hand.sortHand2();
 				DisplayDeck.menu();
+				HandValueAssignments.mainButNotReally();
+				HandValueComparisons.handValueComparisons();
 			}
 
 		public static void shuffleCards()
