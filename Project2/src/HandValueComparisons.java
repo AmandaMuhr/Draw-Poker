@@ -3,7 +3,6 @@ public class HandValueComparisons
 	{
 		public static void handValueComparisons()
 			{
-				HandValueAssignments.mainButNotReally();
 				
 				if (HandValueAssignments.hand1Value > HandValueAssignments.hand2Value)
 					{

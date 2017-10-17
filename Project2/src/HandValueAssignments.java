@@ -2,12 +2,10 @@ import java.util.ArrayList;
 
 public class HandValueAssignments
 	{
-		static int hand1Value = 1000;
-		static int hand2Value;
+		static int hand1Value = 0;
+		static int hand2Value = 0;
 		static boolean colorIsTheSame;
 		static boolean numbersAreConsecutive;
-		static boolean[] pairHand1 = new boolean[5];
-		static boolean[] pairHand2 = new boolean[5];
 		static int trueCount;
 		static int valueOfHighestCardHand1;
 		static int valueOfHighestCardHand2;
@@ -25,71 +23,34 @@ public class HandValueAssignments
 
 		public static void mainButNotReally()
 			{
-					{
-						// HAND 1
-//						checkRoyalFlushHand1();
-//						findHighestCardHand1();
-						if (hand1Value < 8)
-							{
-								checkStraightFlushHand1();
-							} else if (hand1Value < 7)
-							{
-								checkFourOfAKindHand1();
-							} else if (hand1Value < 6)
-							{
-								checkFullHouseHand1();
-							} else if (hand1Value < 5)
-							{
-								checkFlushHand1();
-							} else if (hand1Value < 4)
-							{
-								checkStraightHand1();
-							} else if (hand1Value < 3)
-							{
-								checkTwoPairHand1();
-							} else if (hand1Value < 1)
-							{
-								checkPairAndThreeOfAKindHand1();
-							}
-							else
-						{
-							hand1Value = 100;
-						}
-						System.out.println("Hand 1 Value = " + hand1Value);
-					}
+				// HAND 1
+				System.out.println("Hand1Value before the method calls: " + hand1Value);
+				findHighestCardHand1();
+				checkPairAndThreeOfAKindHand1();
+				checkTwoPairHand1();
+				checkStraightHand1();
+				checkFlushHand1();
+				checkFullHouseHand1();
+				checkFourOfAKindHand1();
+				checkStraightFlushHand1();
+				checkRoyalFlushHand1();
+				
+				System.out.println("Hand 1 Value = " + hand1Value);
 
-					{
-						// HAND 2
-						checkRoyalFlushHand2();
-						findHighestCardHand1();
-						if (hand2Value < 8)
-							{
-								//checkStraightFlushHand2();
-							} else if (hand2Value < 7)
-							{
-								//checkFourOfAKindHand2();
-							} else if (hand2Value < 6)
-							{
-								//checkFullHouseHand2();
-							} else if (hand2Value < 5)
-							{
-								checkFlushHand2();
-							} else if (hand2Value < 4)
-							{
-								checkStraightHand2();
-							} else if (hand2Value < 3)
-							{
-								//checkTwoPairHand2();
-							} else if (hand2Value < 1)
-							{
-								checkPairAndThreeOfAKindHand1();
-							}
-							else
-						{
-							hand2Value = 200;
-						}
-						System.out.println("Hand 2 Value = " + hand2Value);
-					}
+				// HAND 2
+				System.out.println("Hand2Value before the method calls: " + hand2Value);
+				
+				findHighestCardHand2();
+				checkPairAndThreeOfAKindHand2();
+				//checkTwoPairHand2();
+				checkStraightHand2();
+				checkFlushHand2();
+				//checkFullHouseHand2();
+				//checkFourOfAKindHand2();
+				checkStraightFlushHand2();
+				checkRoyalFlushHand2();
+				
+				System.out.println("Hand 2 Value = " + hand2Value);
 			}
 
 		public static void checkIfColorIsTheSameHand1()
@@ -301,49 +262,66 @@ public class HandValueAssignments
 					{
 						for (int a = 0; a < Hand.hand1.size(); a++)
 							{
-								pairHand2[i] = Hand.hand1.get(i).getCardValue() == (Hand.hand1.get(a).getCardValue());
-							}
-						for (int x = 0; x < pairHand1.length; x++)
-							{
-								if (pairHand1[i] == true)
+								if (Hand.hand1.get(i).getCardValue() == (Hand.hand1.get(a).getCardValue()))
 									{
 										trueCount++;
+									} else
+									{
+										
 									}
 							}
-						if (trueCount == 2)
-							{
-								hand1Value = 1;
-							} else if (trueCount == 3)
-							{
-								hand1Value = 3;
-							}
+					}
+				trueCount = trueCount / 3;
+				if (trueCount == 2)
+					{
+						hand1Value = 1;
+					} else if (trueCount == 3)
+					{
+						hand1Value = 3;
+					}
+					else if (trueCount == 4)
+						{
+							//four of a kind is 7, and two pair is 2
+							//hand1Value = 0;
+						}
+					else
+					{
+						
 					}
 			}
-
+		
 		public static void checkPairAndThreeOfAKindHand2()
 			{
 				trueCount = 0;
-				for (int i = 0; i < Hand.hand1.size(); i++)
+				for (int i = 0; i < Hand.hand2.size(); i++)
 					{
-						for (int a = 0; a < Hand.hand1.size(); a++)
+						for (int a = 0; a < Hand.hand2.size(); a++)
 							{
-								pairHand2[i] = Hand.hand1.get(i).getCardValue() == (Hand.hand1.get(a).getCardValue());
-							}
-						for (int x = 0; x < pairHand1.length; x++)
-							{
-								if (pairHand1[i] == true)
+								if (Hand.hand2.get(i).getCardValue() == (Hand.hand2.get(a).getCardValue()))
 									{
 										trueCount++;
+									} else
+									{
+										
 									}
 							}
-						trueCount/=2;
-						if (trueCount == 2)
-							{
-								hand2Value = 1;
-							} else if (trueCount == 3)
-							{
-								hand2Value = 3;
-							}
+					}
+				trueCount = trueCount / 3;
+				if (trueCount == 2)
+					{
+						hand2Value = 1;
+					} else if (trueCount == 3)
+					{
+						hand2Value = 3;
+					}
+				else if (trueCount == 4)
+					{
+						//four of a kind is 7, and two pair is 2
+						//hand2Value = 0;
+					}
+					else
+					{
+						
 					}
 			}
 
