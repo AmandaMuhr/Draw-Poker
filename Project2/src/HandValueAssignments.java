@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class HandValueAssignments
 	{
@@ -24,33 +25,30 @@ public class HandValueAssignments
 		public static void mainButNotReally()
 			{
 				// HAND 1
-				System.out.println("Hand1Value before the method calls: " + hand1Value);
 				findHighestCardHand1();
 				checkPairAndThreeOfAKindHand1();
-				checkTwoPairHand1();
+				//checkTwoPairHand1();
 				checkStraightHand1();
 				checkFlushHand1();
 				checkFullHouseHand1();
-				checkFourOfAKindHand1();
+				//checkFourOfAKindHand1();
 				checkStraightFlushHand1();
 				checkRoyalFlushHand1();
 				
-				System.out.println("Hand 1 Value = " + hand1Value);
+				System.out.println("Hand 1 Value: " + hand1Value);
 
 				// HAND 2
-				System.out.println("Hand2Value before the method calls: " + hand2Value);
-				
 				findHighestCardHand2();
 				checkPairAndThreeOfAKindHand2();
 				//checkTwoPairHand2();
 				checkStraightHand2();
 				checkFlushHand2();
-				//checkFullHouseHand2();
+				checkFullHouseHand2();
 				//checkFourOfAKindHand2();
 				checkStraightFlushHand2();
 				checkRoyalFlushHand2();
 				
-				System.out.println("Hand 2 Value = " + hand2Value);
+				System.out.println("Hand 2 Value: " + hand2Value);
 			}
 
 		public static void checkIfColorIsTheSameHand1()
@@ -204,14 +202,75 @@ public class HandValueAssignments
 					}
 			}
 
-		public static void checkFourOfAKindHand1()
-			{
-				
-			}
+//		public static void checkFourOfAKindHand1()
+//			{
+//				
+//			}
 
 		public static void checkFullHouseHand1()
 			{
-
+				//from http://www.cs.princeton.edu/courses/archive/spr15/cos126/docs/PokerHand.java.html
+		        int rank1 = Hand.hand1.get(0).getCardValue();
+		        int sumRank1 = 1;
+		        int rank2 = Hand.hand1.get(4).getCardValue();
+		        int sumRank2 = 1;
+		        for (int i = 1; i < Hand.hand1.size() - 1; i++)
+		        	{
+		            if (Hand.hand1.get(i).getCardValue() == rank1)
+		            	{
+		            		sumRank1++;
+		            	}
+		            if (Hand.hand1.get(i).getCardValue() == rank2)
+		            	{
+		            		sumRank2++;
+		            	}
+		        }
+		        
+		        if (sumRank1 == 3 && sumRank2 == 2)
+		        	{
+		        		hand1Value = 6;
+		        	}
+		        if (sumRank1 == 2 && sumRank2 == 3)
+		        	{
+		        		hand1Value = 6;
+		        	}
+		        else
+		        	{
+		        		
+		        	}
+			}
+		
+		public static void checkFullHouseHand2()
+			{
+				//from http://www.cs.princeton.edu/courses/archive/spr15/cos126/docs/PokerHand.java.html
+		        int rank1 = Hand.hand2.get(0).getCardValue();
+		        int sumRank1 = 1;
+		        int rank2 = Hand.hand2.get(4).getCardValue();
+		        int sumRank2 = 1;
+		        for (int i = 1; i < Hand.hand2.size() - 1; i++)
+		        	{
+		            if (Hand.hand2.get(i).getCardValue() == rank1)
+		            	{
+		            		sumRank1++;
+		            	}
+		            if (Hand.hand2.get(i).getCardValue() == rank2)
+		            	{
+		            		sumRank2++;
+		            	}
+		        }
+		        
+		        if (sumRank1 == 3 && sumRank2 == 2)
+		        	{
+		        		hand2Value = 6;
+		        	}
+		        if (sumRank1 == 2 && sumRank2 == 3)
+		        	{
+		        		hand2Value = 6;
+		        	}
+		        else
+		        	{
+		        		
+		        	}
 			}
 
 		public static void checkFlushHand1()
@@ -250,10 +309,10 @@ public class HandValueAssignments
 					}
 			}
 
-		public static void checkTwoPairHand1()
-			{
-				
-			}
+//		public static void checkTwoPairHand1()
+//			{
+//				
+//			}
 
 		public static void checkPairAndThreeOfAKindHand1()
 			{
@@ -278,15 +337,26 @@ public class HandValueAssignments
 					} else if (trueCount == 3)
 					{
 						hand1Value = 3;
-					}
-					else if (trueCount == 4)
-						{
-							//four of a kind is 7, and two pair is 2
-							//hand1Value = 0;
-						}
-					else
+					} else if (trueCount == 4)
 					{
-						
+						System.out.println("The computer has detected either a two pair or four of a kind...");
+						System.out.println(
+								"Could you tell me which one it is? Please type 1 for two pair, and 2 for four of a kind.");
+						Scanner userInput = new Scanner(System.in);
+						int number = userInput.nextInt();
+						if (number == 1)
+							{
+								hand1Value = 2;
+							}
+						else if (number == 2)
+							{
+								hand1Value = 7;
+							}
+						// four of a kind is 7, and two pair is 2
+						// hand1Value = 0;
+					} else
+					{
+
 					}
 			}
 		
@@ -316,6 +386,18 @@ public class HandValueAssignments
 					}
 				else if (trueCount == 4)
 					{
+						System.out.println("The computer has detected either a two pair or four of a kind...");
+						System.out.println("Could you tell me which one it is? Please type 1 for two pair, and 2 for four of a kind.");
+						Scanner userInput = new Scanner(System.in);
+						int number = userInput.nextInt();
+						if (number == 1)
+							{
+								hand2Value = 2;
+							}
+						else if (number == 2)
+							{
+								hand2Value = 7;
+							}
 						//four of a kind is 7, and two pair is 2
 						//hand2Value = 0;
 					}
