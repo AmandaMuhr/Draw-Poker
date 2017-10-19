@@ -11,7 +11,7 @@ public class DisplayDeck
 		public static void displayHand1()
 			{
 				System.out.println("");
-				System.out.println("Player 1, here is your hand:");
+				System.out.println("Here is your hand:");
 				System.out.println("");
 				for (Card c : Hand.hand1)
 					{
@@ -23,7 +23,7 @@ public class DisplayDeck
 		public static void displayHand2()
 			{
 				System.out.println("");
-				System.out.println("Player 2, here is your hand:");
+				System.out.println("Here is Player 2's hand");
 				System.out.println("");
 				for (Card c : Hand.hand2)
 					{

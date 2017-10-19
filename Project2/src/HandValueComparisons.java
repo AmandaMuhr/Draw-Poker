@@ -4,18 +4,18 @@ public class HandValueComparisons
 	{
 		public static void handValueComparisons()
 			{
-
+				
 				if (HandValueAssignments.hand1Value > HandValueAssignments.hand2Value)
 					{
 						System.out.println("");
-						System.out.println("Player 1 wins!");
+						System.out.println("You win!");
 						Betting.money = Betting.money + Betting.wager;
 						System.out.println("You now have $" + Betting.money + ".");
 						doYouWantToPlayAgain();
 					} else if (HandValueAssignments.hand2Value > HandValueAssignments.hand1Value)
 					{
 						System.out.println("");
-						System.out.println("Player 2 wins!");
+						System.out.println("Sorry, Player 2 wins!");
 						Betting.money = Betting.money - Betting.wager;
 						System.out.println("You now have $" + Betting.money + ".");
 						doYouWantToPlayAgain();
@@ -24,14 +24,14 @@ public class HandValueComparisons
 						if (HandValueAssignments.valueOfHighestCardHand1 > HandValueAssignments.valueOfHighestCardHand2)
 							{
 								System.out.println("");
-								System.out.println("Player 1 wins!");
+								System.out.println("You win!");
 								Betting.money = Betting.money + Betting.wager;
 								System.out.println("You now have $" + Betting.money + ".");
 								doYouWantToPlayAgain();
 							} else if (HandValueAssignments.valueOfHighestCardHand1 < HandValueAssignments.valueOfHighestCardHand2)
 							{
 								System.out.println("");
-								System.out.println("Player 2 wins!");
+								System.out.println("Sorry, Player 2 wins!");
 								Betting.money = Betting.money - Betting.wager;
 								System.out.println("You now have $" + Betting.money + ".");
 								doYouWantToPlayAgain();

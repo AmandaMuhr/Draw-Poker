@@ -20,6 +20,7 @@ public class CardDealer
 				Betting.betting();
 				HandValueComparisons.handValueComparisons();
 					}
+				System.exit(0);
 			}
 
 		public static void shuffleCards()

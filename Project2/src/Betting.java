@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class Betting
 	{
-		static int money = 100;
-		static int wager;
+		public static Scanner userInput = new Scanner(System.in);
+		public static int wager;
+		public static int money = 100;
 		
 		public static void betting()
 			{
-				System.out.println("You have " + money + "; how much would you like to bet on your hand?");
-				Scanner userInput = new Scanner(System.in);
-				int wager = userInput.nextInt();
+				System.out.println("You have $" + Betting.money + "; how much would you like to bet on your hand?");
+				wager = userInput.nextInt();
 				
 				if (wager <= 0)
 					{
@@ -21,10 +21,9 @@ public class Betting
 						System.out.println("Sorry, this is more money than you have!");
 						betting();
 					}
-				else if (wager < money)
+				else if (wager < Betting.money)
 					{
-						money = money - wager;
-						System.out.println("All right! You bet $" + wager + " and you have $" + money + " left.");
+						System.out.println("All right! You bet $" + wager + ".");
 					}
 				else
 					{
