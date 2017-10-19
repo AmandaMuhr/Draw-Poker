@@ -9,15 +9,15 @@ public class HandValueComparisons
 					{
 						System.out.println("");
 						System.out.println("You win!");
-						Betting.money = Betting.money + Betting.wager;
-						System.out.println("You now have $" + Betting.money + ".");
+						Betting.playerMoney = Betting.playerMoney + Betting.pot;
+						System.out.println("You now have $" + Betting.playerMoney + ".");
 						doYouWantToPlayAgain();
 					} else if (HandValueAssignments.hand2Value > HandValueAssignments.hand1Value)
 					{
 						System.out.println("");
-						System.out.println("Sorry, Player 2 wins!");
-						Betting.money = Betting.money - Betting.wager;
-						System.out.println("You now have $" + Betting.money + ".");
+						System.out.println("Sorry, the computer wins!");
+						Betting.playerMoney = Betting.playerMoney - Betting.playerBet;
+						System.out.println("You now have $" + Betting.playerMoney + ".");
 						doYouWantToPlayAgain();
 					} else if (HandValueAssignments.hand2Value == HandValueAssignments.hand1Value)
 					{
@@ -25,15 +25,15 @@ public class HandValueComparisons
 							{
 								System.out.println("");
 								System.out.println("You win!");
-								Betting.money = Betting.money + Betting.wager;
-								System.out.println("You now have $" + Betting.money + ".");
+								Betting.playerMoney = Betting.playerMoney + Betting.pot;
+								System.out.println("You now have $" + Betting.playerMoney + ".");
 								doYouWantToPlayAgain();
 							} else if (HandValueAssignments.valueOfHighestCardHand1 < HandValueAssignments.valueOfHighestCardHand2)
 							{
 								System.out.println("");
-								System.out.println("Sorry, Player 2 wins!");
-								Betting.money = Betting.money - Betting.wager;
-								System.out.println("You now have $" + Betting.money + ".");
+								System.out.println("Sorry, the computer wins!");
+								Betting.playerMoney = Betting.playerMoney - Betting.playerBet;
+								System.out.println("You now have $" + Betting.playerMoney + ".");
 								doYouWantToPlayAgain();
 							} else if (HandValueAssignments.valueOfHighestCardHand1 == HandValueAssignments.valueOfHighestCardHand2)
 							{
@@ -41,7 +41,7 @@ public class HandValueComparisons
 								System.out.println("It's a tie! (As far of the computer can tell, anyway)");
 								System.out
 										.println("I'm sorry, you don't gain or lose any money in this game. You have $"
-												+ Betting.money + " left.");
+												+ Betting.playerMoney + " left.");
 								doYouWantToPlayAgain();
 							} else
 							{

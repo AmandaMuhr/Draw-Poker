@@ -11,14 +11,22 @@ public class CardDealer
 				DeckCreator.fillCardDeck();
 				while (stillPlaying)
 					{
-				shuffleCards();
-				dealCards();
-				HandValueAssignments.mainButNotReally();
-				Hand.sortHand1();
-				Hand.sortHand2();
-				DisplayDeck.menu();
-				Betting.betting();
-				HandValueComparisons.handValueComparisons();
+						shuffleCards();
+						dealCards();
+						HandValueAssignments.mainButNotReally();
+						Hand.sortHand1();
+						Hand.sortHand2();
+						DisplayDeck.menu();
+						Betting.playerBetting();
+						if (Betting.playerBet == 0)
+							{
+								stillPlaying = true;
+							} else
+							{
+								Betting.compBetting();
+								Betting.calculatePot();
+								HandValueComparisons.handValueComparisons();
+							}
 					}
 				System.exit(0);
 			}
