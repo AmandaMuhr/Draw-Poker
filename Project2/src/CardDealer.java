@@ -11,11 +11,12 @@ public class CardDealer
 				DeckCreator.fillCardDeck();
 				while (stillPlaying)
 					{
+						//ROUND 1
 						shuffleCards();
 						dealCards();
-						HandValueAssignments.mainButNotReally();
 						Hand.sortHand1();
 						Hand.sortHand2();
+						HandValueAssignments.mainButNotReally();
 						DisplayDeck.menu();
 						Betting.compBetting();
 						if (!Betting.compFold)
@@ -39,6 +40,34 @@ public class CardDealer
 								HandValueComparisons.handValueComparisons();
 								stillPlaying = true;
 							}
+						
+						// ROUND 2
+						TradeCards.tradeCards();
+						Hand.sortHand1();
+						Hand.sortHand2();
+						HandValueAssignments.mainButNotReally();
+						DisplayDeck.menu();
+						Betting.compBetting();
+						if (!Betting.compFold)
+							{
+								Betting.playerBetting();
+							}
+						if (Betting.playerBet == 0)
+							{
+								HandValueComparisons.doYouWantToPlayAgain();
+								stillPlaying = true;
+							} else if (Betting.compFold)
+							{
+
+								Betting.calculatePot();
+								stillPlaying = true;
+							} else
+							{
+								Betting.calculatePot();
+								HandValueComparisons.handValueComparisons();
+								stillPlaying = true;
+							}
+						
 					}
 				System.exit(0);
 			}
