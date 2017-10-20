@@ -30,7 +30,6 @@ public class CardDealer
 							}
 						else if (Betting.compFold)
 							{
-
 								Betting.calculatePot();
 								stillPlaying = true;
 							}
