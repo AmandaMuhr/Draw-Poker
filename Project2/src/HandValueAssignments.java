@@ -339,7 +339,7 @@ public class HandValueAssignments
 						hand1Value = 3;
 					} else if (trueCount == 4)
 					{
-						System.out.println("The computer has detected either a two pair or four of a kind...");
+						System.out.println("The computer has detected either a two pair or four of a kind in your hand...");
 						System.out.println(
 								"Could you tell me which one it is? Please type 1 for two pair, and 2 for four of a kind.");
 						Scanner userInput = new Scanner(System.in);
@@ -386,7 +386,7 @@ public class HandValueAssignments
 					}
 				else if (trueCount == 4)
 					{
-						System.out.println("The computer has detected either a two pair or four of a kind...");
+						System.out.println("The computer has detected either a two pair or four of a kind. in the computer's hand..");
 						System.out.println("Could you tell me which one it is? Please type 1 for two pair, and 2 for four of a kind.");
 						Scanner userInput = new Scanner(System.in);
 						int number = userInput.nextInt();

@@ -18,14 +18,23 @@ public class CardDealer
 						Hand.sortHand2();
 						DisplayDeck.menu();
 						Betting.playerBetting();
+						Betting.compBetting();
 						if (Betting.playerBet == 0)
 							{
+								HandValueComparisons.doYouWantToPlayAgain();
 								stillPlaying = true;
-							} else
+							}
+						else if (Betting.compFold)
 							{
-								Betting.compBetting();
+
+								Betting.calculatePot();
+								stillPlaying = true;
+							}
+						else
+							{
 								Betting.calculatePot();
 								HandValueComparisons.handValueComparisons();
+								stillPlaying = true;
 							}
 					}
 				System.exit(0);

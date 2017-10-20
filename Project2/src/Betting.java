@@ -8,6 +8,7 @@ public class Betting
 		public static int pot;
 		public static int compMoney = 100;
 		public static int compBet;
+		public static boolean compFold;
 		
 
 		public static void playerBetting()
@@ -44,6 +45,62 @@ public class Betting
 
 		public static void compBetting()
 			{
+				boolean compStillBetting = true;
+				while (compStillBetting)
+					{
+						if (playerBet > 70 && HandValueAssignments.hand2Value >= 7
+								|| playerBet > 40 && HandValueAssignments.hand2Value >= 4
+								|| playerBet > 27 && HandValueAssignments.hand2Value > 2
+								|| playerBet > 15 && HandValueAssignments.hand2Value > 0)
+							{
+								System.out.println("The computer folded. You win!");
+								pot = playerBet + compBet;
+								playerMoney = playerMoney + pot;
+								compStillBetting = false;
+								compFold = true;
+							} else if (compBet > 70 && HandValueAssignments.hand2Value >= 7)
+							{
+								System.out.println("The computer folded. You win!");
+								pot = playerBet + compBet;
+								playerMoney = playerMoney + pot;
+								compStillBetting = false;
+								compFold = true;
+							} else if (compBet > 40 && HandValueAssignments.hand2Value >= 4)
+							{
+								System.out.println("The computer folded. You win!");
+								pot = playerBet + compBet;
+								playerMoney = playerMoney + pot;
+								compStillBetting = false;
+								compFold = true;
+								} else if (compBet > 27 && HandValueAssignments.hand2Value > 2)
+								{
+									System.out.println("The computer folded. You win!");
+									playerMoney = playerMoney + pot;
+									compStillBetting = false;
+									compFold = true;
+								} else if (compBet > 15 && HandValueAssignments.hand2Value > 0)
+								{
+									System.out.println("The computer folded. You win!");
+									playerMoney = playerMoney + pot;
+								compStillBetting = false;
+								compFold = true;
+							}
+					}
+				boolean compStillBetting2 = true;
+				while (compStillBetting2)
+					{
+						if (playerBet > compBet)
+							{
+								compBet = compBet + 1;
+							} else if (playerBet == compBet)
+							{
+								compStillBetting2 = false;
+							} else
+							{
+								compStillBetting2 = false;
+							}
+					}
+				
 				if (HandValueAssignments.hand2Value >= 7)
 					{
 						compBet = 40;
@@ -63,47 +120,9 @@ public class Betting
 					{
 						compBet = 5;
 					}
-				
-				boolean compStillBetting = true;
-				while (compStillBetting)
-					{
-						if (compBet > 70 && HandValueAssignments.hand2Value >= 7)
-							{
-								System.out.println("The computer folded. You win!");
-								pot = playerBet + compBet;
-								playerMoney = playerMoney + pot;
-								compStillBetting = false;
-							}
-						else if (compBet > 40 && HandValueAssignments.hand2Value >= 4)
-							{
-								System.out.println("The computer folded. You win!");
-								pot = playerBet + compBet;
-								playerMoney = playerMoney + pot;
-								compStillBetting = false;
-							}
-						else if (compBet > 27 && HandValueAssignments.hand2Value > 2)
-							{
-								System.out.println("The computer folded. You win!");
-								playerMoney = playerMoney + pot;
-								compStillBetting = false;
-							}
-						else if (compBet > 15 && HandValueAssignments.hand2Value > 0)
-							{
-								System.out.println("The computer folded. You win!");
-								playerMoney = playerMoney + pot;
-								compStillBetting = false;
-							}
+				System.out.println("The computer bet $" + compBet + ".");
+				System.out.println("");
 
-						else if (playerBet > compBet)
-							{
-								compBet = compBet + 1;
-							} else if (playerBet == compBet)
-							{
-								compStillBetting = false;
-							}
-						System.out.println("The computer bet $" + compBet + ".");
-						System.out.println("");
-					}
 			}
 
 		public static void calculatePot()
