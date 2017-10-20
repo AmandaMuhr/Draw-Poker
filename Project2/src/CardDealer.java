@@ -17,8 +17,11 @@ public class CardDealer
 						Hand.sortHand1();
 						Hand.sortHand2();
 						DisplayDeck.menu();
-						Betting.playerBetting();
 						Betting.compBetting();
+						if (!Betting.compFold)
+							{
+						Betting.playerBetting();
+							}
 						if (Betting.playerBet == 0)
 							{
 								HandValueComparisons.doYouWantToPlayAgain();
