@@ -85,6 +85,7 @@ public class Betting
 								compStillBetting = false;
 								compFold = true;
 							}
+						compStillBetting = false;
 					}
 				boolean compStillBetting2 = true;
 				while (compStillBetting2)
@@ -119,6 +120,17 @@ public class Betting
 					} else
 					{
 						compBet = 5;
+					}
+				
+				if (compBet<playerBet)
+					{
+						compBetting();
+					}
+				
+				if (playerBet < compBet)
+					{
+						System.out.println("Your bet is less than the computer's bet. Please bet again.");
+						playerBetting();
 					}
 				System.out.println("The computer bet $" + compBet + ".");
 				System.out.println("");
