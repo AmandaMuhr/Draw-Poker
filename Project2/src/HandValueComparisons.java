@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class HandValueComparisons
 	{
+		public static boolean notKeepPlaying;
+		
 		public static void handValueComparisons()
 			{
 				

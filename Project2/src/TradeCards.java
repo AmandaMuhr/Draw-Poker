@@ -2,14 +2,29 @@ import java.util.Scanner;
 
 public class TradeCards
 	{
-		public static void tradeCards()
+		public static int cardTrade;
+		public static boolean noCardTrade;
+		static boolean stillTradingCards = true;
+		
+		public static void tradeCardsGreeting()
 			{
-				System.out.println("Would you like to trade any cards?");
 				System.out.println(
 						"Look at your hand and type a number from 1 to 5 to select a card to trade. If you do not want to trade any cards, please type 0.");
 				Scanner userInput2 = new Scanner(System.in);
-				int cardTrade = userInput2.nextInt();
-				boolean stillTradingCards = true;
+				cardTrade = userInput2.nextInt();
+				
+				if (cardTrade == 0)
+					{
+						noCardTrade = true;
+					}
+				else
+					{
+						tradeCards();
+					}
+			}
+			
+		public static void tradeCards()
+			{
 				while (stillTradingCards)
 					{
 						switch (cardTrade)
@@ -63,6 +78,7 @@ public class TradeCards
 							{
 								System.out.println("Ok!");
 								stillTradingCards = true;
+								tradeCardsGreeting();
 							} else if (areYouStillTrading == 2)
 							{
 								System.out.println("All right!");

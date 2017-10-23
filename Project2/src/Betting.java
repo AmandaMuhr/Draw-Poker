@@ -35,10 +35,12 @@ public class Betting
 					} else if (compBet < playerBet)
 					{
 						System.out.println("All right! You bet $" + playerBet + ".");
+						playerMoney = playerMoney - playerBet;
 						calculatePot();
 					} else if (playerBet <= Betting.playerMoney)
 					{
 						System.out.println("All right! You bet $" + playerBet + ".");
+						playerMoney = playerMoney - playerBet;
 						calculatePot();
 					} else
 					{
@@ -93,8 +95,8 @@ public class Betting
 								|| playerBet > 15 && HandValueAssignments.hand2Value > 0)
 							{
 								System.out.println("The computer folded. You win!");
-								calculatePot();
 								playerMoney = playerMoney + pot;
+								System.out.println("You now have $" + playerMoney + ".");
 								compStillBetting = false;
 								compFold = true;
 							}
@@ -106,6 +108,7 @@ public class Betting
 								System.out.println("The computer folded. You win!");
 								calculatePot();
 								playerMoney = playerMoney + pot;
+								System.out.println("You now have $" + playerMoney + ".");
 								compStillBetting = false;
 								compFold = true;
 							}
@@ -122,7 +125,7 @@ public class Betting
 
 		public static void calculatePot()
 		{
-			pot = compBet + playerBet;
+			pot = pot + compBet + playerBet;
 			System.out.println("The pot is $" + pot + ".");
 		}
 	}
