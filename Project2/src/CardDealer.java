@@ -40,7 +40,6 @@ public class CardDealer
 								HandValueComparisons.handValueComparisons();
 								stillPlayingPart1 = true;
 							}
-					}
 
 				while (stillPlayingPart2)
 					{
@@ -66,13 +65,14 @@ public class CardDealer
 								stillPlayingPart2 = true;
 							} else
 							{
-								Betting.calculatePot();
-								HandValueComparisons.handValueComparisons();
-								stillPlayingPart2 = true;
+										Betting.calculatePot();
+										HandValueComparisons.handValueComparisons();
+										stillPlayingPart2 = true;
+									}
 							}
+						System.out.println("See you next time!");
+						System.exit(0);
 					}
-				System.out.println("See you next time!");
-				System.exit(0);
 			}
 
 		public static void shuffleCards()
