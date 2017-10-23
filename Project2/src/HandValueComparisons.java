@@ -67,11 +67,11 @@ public class HandValueComparisons
 				if (choice == 1)
 					{
 						System.out.println("All right, let's keep playing!");
-						CardDealer.stillPlaying = true;
+						CardDealer.stillPlayingPart1 = true;
 					} else if (choice == 2)
 					{
 						System.out.println("All right, see you next time!");
-						CardDealer.stillPlaying = false;
+						CardDealer.stillPlayingPart1 = false;
 					} else
 					{
 						System.out.println("Sorry, this is not a valid input...");

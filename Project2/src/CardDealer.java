@@ -4,14 +4,16 @@ import java.util.Scanner;
 public class CardDealer
 	{
 		static int randomNumber = (int) (Math.random() * 50);
-		static boolean stillPlaying = true;
+		static boolean stillPlayingPart1 = true;
+		static boolean stillPlayingPart2 = true;
 
 		public static void main(String[] args)
 			{
+				GreetUser.greetUser();
 				DeckCreator.fillCardDeck();
-				while (stillPlaying)
+				while (stillPlayingPart1)
 					{
-						//ROUND 1
+						// ROUND 1
 						shuffleCards();
 						dealCards();
 						Hand.sortHand1();
@@ -21,25 +23,27 @@ public class CardDealer
 						Betting.compBetting();
 						if (!Betting.compFold)
 							{
-						Betting.playerBetting();
-							}
-						if (Betting.playerBet == 0)
+								Betting.playerBetting();
+							} else if (Betting.playerBet == 0)
 							{
 								HandValueComparisons.doYouWantToPlayAgain();
-								stillPlaying = true;
-							}
-						else if (Betting.compFold)
+								stillPlayingPart1 = true;
+								stillPlayingPart2 = false;
+							} else if (Betting.compFold)
 							{
 								Betting.calculatePot();
-								stillPlaying = true;
-							}
-						else
+								stillPlayingPart1 = true;
+								stillPlayingPart2 = false;
+							} else
 							{
 								Betting.calculatePot();
 								HandValueComparisons.handValueComparisons();
-								stillPlaying = true;
+								stillPlayingPart1 = true;
 							}
-						
+					}
+
+				while (stillPlayingPart2)
+					{
 						// ROUND 2
 						TradeCards.tradeCards();
 						Hand.sortHand1();
@@ -54,20 +58,20 @@ public class CardDealer
 						if (Betting.playerBet == 0)
 							{
 								HandValueComparisons.doYouWantToPlayAgain();
-								stillPlaying = true;
+								stillPlayingPart2 = true;
 							} else if (Betting.compFold)
 							{
 
 								Betting.calculatePot();
-								stillPlaying = true;
+								stillPlayingPart2 = true;
 							} else
 							{
 								Betting.calculatePot();
 								HandValueComparisons.handValueComparisons();
-								stillPlaying = true;
+								stillPlayingPart2 = true;
 							}
-						
 					}
+				System.out.println("See you next time!");
 				System.exit(0);
 			}
 
