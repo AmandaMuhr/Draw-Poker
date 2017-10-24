@@ -36,12 +36,18 @@ public class Betting
 					{
 						System.out.println("All right! You bet $" + playerBet + ".");
 						playerMoney = playerMoney - playerBet;
-						calculatePot();
+						if (compBet < playerBet)
+							{
+								compBetting();
+							}
 					} else if (playerBet <= Betting.playerMoney)
 					{
 						System.out.println("All right! You bet $" + playerBet + ".");
 						playerMoney = playerMoney - playerBet;
-						calculatePot();
+						if (compBet < playerBet)
+							{
+								compBetting();
+							}
 					} else
 					{
 						System.out.println("Error...");
@@ -114,18 +120,25 @@ public class Betting
 							}
 						compStillBetting = false;
 					}
-				
+
 				if (compBet < playerBet)
 					{
 						compBetting();
 					}
 				System.out.println("The computer bet $" + compBet + ".");
 				System.out.println("");
+				calculatePot();
 			}
 
 		public static void calculatePot()
-		{
-			pot = pot + compBet + playerBet;
-			System.out.println("The pot is $" + pot + ".");
-		}
+			{
+				pot = compBet + playerBet;
+				System.out.println("The pot is $" + pot + ".");
+			}
+
+		public static void calculatePot2()
+			{
+				pot = pot + compBet + playerBet;
+				System.out.println("The pot is $" + pot + ".");
+			}
 	}

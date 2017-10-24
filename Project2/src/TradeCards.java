@@ -10,6 +10,7 @@ public class TradeCards
 			{
 				System.out.println(
 						"Look at your hand and type a number from 1 to 5 to select a card to trade. If you do not want to trade any cards, please type 0.");
+				System.out.println("Also, please start with the LAST card you want to trade.");
 				Scanner userInput2 = new Scanner(System.in);
 				cardTrade = userInput2.nextInt();
 				

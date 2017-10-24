@@ -24,6 +24,7 @@ public class CardDealer
 						if (!Betting.compFold)
 							{
 								Betting.playerBetting();
+								Betting.calculatePot();
 							} else if (Betting.playerBet == 0)
 							{
 								HandValueComparisons.doYouWantToPlayAgain();
@@ -55,6 +56,7 @@ public class CardDealer
 										if (!Betting.compFold)
 											{
 												Betting.playerBetting();
+												Betting.calculatePot2();
 											}
 										if (Betting.playerBet == 0)
 											{
@@ -63,11 +65,11 @@ public class CardDealer
 											} else if (Betting.compFold)
 											{
 
-												Betting.calculatePot();
+												Betting.calculatePot2();
 												stillPlayingPart2 = true;
 											} else
 											{
-												Betting.calculatePot();
+												Betting.calculatePot2();
 												HandValueComparisons.handValueComparisons();
 												stillPlayingPart2 = true;
 											}
@@ -93,7 +95,7 @@ public class CardDealer
 												stillPlayingPart2 = true;
 											} else
 											{
-												Betting.calculatePot();
+												Betting.calculatePot2();
 												HandValueComparisons.handValueComparisons();
 												stillPlayingPart2 = true;
 											}

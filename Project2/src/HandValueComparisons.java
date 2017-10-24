@@ -18,7 +18,6 @@ public class HandValueComparisons
 					{
 						System.out.println("");
 						System.out.println("Sorry, the computer wins!");
-						Betting.playerMoney = Betting.playerMoney - Betting.playerBet;
 						System.out.println("You now have $" + Betting.playerMoney + ".");
 						doYouWantToPlayAgain();
 					} else if (HandValueAssignments.hand2Value == HandValueAssignments.hand1Value)
@@ -34,7 +33,6 @@ public class HandValueComparisons
 							{
 								System.out.println("");
 								System.out.println("Sorry, the computer wins!");
-								Betting.playerMoney = Betting.playerMoney - Betting.playerBet;
 								System.out.println("You now have $" + Betting.playerMoney + ".");
 								doYouWantToPlayAgain();
 							} else if (HandValueAssignments.valueOfHighestCardHand1 == HandValueAssignments.valueOfHighestCardHand2)
@@ -74,6 +72,7 @@ public class HandValueComparisons
 					{
 						System.out.println("All right, see you next time!");
 						CardDealer.stillPlayingPart1 = false;
+						System.exit(0);
 					} else
 					{
 						System.out.println("Sorry, this is not a valid input...");
