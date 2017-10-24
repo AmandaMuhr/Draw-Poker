@@ -68,10 +68,12 @@ public class HandValueComparisons
 					{
 						System.out.println("All right, let's keep playing!");
 						CardDealer.stillPlayingPart1 = true;
+						notKeepPlaying = false;
 					} else if (choice == 2)
 					{
 						System.out.println("All right, see you next time!");
 						CardDealer.stillPlayingPart1 = false;
+						notKeepPlaying = true;
 						System.exit(0);
 					} else
 					{

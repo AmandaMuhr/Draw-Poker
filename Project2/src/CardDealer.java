@@ -41,73 +41,74 @@ public class CardDealer
 								HandValueComparisons.handValueComparisons();
 								stillPlayingPart1 = true;
 							}
-
+					}
+				
 				while (stillPlayingPart2)
 					{
 						// ROUND 2
-								TradeCards.tradeCardsGreeting();
-								if (TradeCards.noCardTrade)
+						TradeCards.tradeCardsGreeting();
+						if (TradeCards.noCardTrade)
+							{
+								Hand.sortHand1();
+								Hand.sortHand2();
+								HandValueAssignments.mainButNotReally();
+								DisplayDeck.menu();
+								Betting.compBetting();
+								if (!Betting.compFold)
 									{
-										Hand.sortHand1();
-										Hand.sortHand2();
-										HandValueAssignments.mainButNotReally();
-										DisplayDeck.menu();
-										Betting.compBetting();
-										if (!Betting.compFold)
-											{
-												Betting.playerBetting();
-												Betting.calculatePot2();
-											}
-										if (Betting.playerBet == 0)
-											{
-												HandValueComparisons.doYouWantToPlayAgain();
-												stillPlayingPart2 = true;
-											} else if (Betting.compFold)
-											{
-
-												Betting.calculatePot2();
-												stillPlayingPart2 = true;
-											} else
-											{
-												Betting.calculatePot2();
-												HandValueComparisons.handValueComparisons();
-												stillPlayingPart2 = true;
-											}
-									} else if (!TradeCards.noCardTrade)
+										Betting.playerBetting();
+										Betting.calculatePot2();
+									}
+								if (Betting.playerBet == 0)
 									{
-										Hand.sortHand1();
-										Hand.sortHand2();
-										HandValueAssignments.mainButNotReally();
-										DisplayDeck.menu();
-										Betting.compBetting();
-										if (!Betting.compFold)
-											{
-												Betting.playerBetting();
-											}
-										if (Betting.playerBet == 0)
-											{
-												HandValueComparisons.doYouWantToPlayAgain();
-												stillPlayingPart2 = true;
-											} else if (Betting.compFold)
-											{
+										HandValueComparisons.doYouWantToPlayAgain();
+										stillPlayingPart2 = true;
+									} else if (Betting.compFold)
+									{
 
-												Betting.calculatePot();
-												stillPlayingPart2 = true;
-											} else
-											{
-												Betting.calculatePot2();
-												HandValueComparisons.handValueComparisons();
-												stillPlayingPart2 = true;
-											}
+										Betting.calculatePot2();
+										stillPlayingPart2 = true;
+									} else
+									{
+										Betting.calculatePot2();
+										HandValueComparisons.handValueComparisons();
+										stillPlayingPart2 = true;
+									}
+							} else if (!TradeCards.noCardTrade)
+							{
+								Hand.sortHand1();
+								Hand.sortHand2();
+								HandValueAssignments.mainButNotReally();
+								DisplayDeck.menu();
+								Betting.compBetting();
+								if (!Betting.compFold)
+									{
+										Betting.playerBetting();
+									}
+								if (Betting.playerBet == 0)
+									{
+										HandValueComparisons.doYouWantToPlayAgain();
+										stillPlayingPart2 = true;
+									} else if (Betting.compFold)
+									{
+
+										Betting.calculatePot();
+										stillPlayingPart2 = true;
+									} else
+									{
+										Betting.calculatePot2();
+										HandValueComparisons.handValueComparisons();
+										stillPlayingPart2 = true;
 									}
 							}
+					}
+				
 
 				if (HandValueComparisons.notKeepPlaying)
 					{
 						System.out.println("See you next time!");
 						System.exit(0);
 					}
-			}
 			}
 
 		public static void shuffleCards()
