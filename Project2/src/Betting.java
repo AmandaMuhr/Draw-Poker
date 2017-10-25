@@ -5,7 +5,7 @@ public class Betting
 		public static Scanner userInput = new Scanner(System.in);
 		public static int playerBet;
 		public static int playerMoney = 100;
-		public static int pot;
+		public static int pot = 0;
 		public static int compMoney = 100;
 		public static int compBet;
 		public static boolean compFold;
@@ -112,7 +112,6 @@ public class Betting
 									|| compBet > 15 && HandValueAssignments.hand2Value > 0)
 							{
 								System.out.println("The computer folded. You win!");
-								calculatePot();
 								playerMoney = playerMoney + pot;
 								System.out.println("You now have $" + playerMoney + ".");
 								compStillBetting = false;
@@ -132,13 +131,19 @@ public class Betting
 
 		public static void calculatePot()
 			{
-				pot = compBet + playerBet;
-				System.out.println("The pot is $" + pot + ".");
-			}
-
-		public static void calculatePot2()
-			{
+				if (CardDealer.onSecondLoop)
+					{
 				pot = pot + compBet + playerBet;
 				System.out.println("The pot is $" + pot + ".");
+					}
+				else if (!CardDealer.onSecondLoop)
+					{
+						pot = compBet + playerBet;
+						System.out.println("The pot is $" + pot + ".");
+					}
+				else
+					{
+						System.out.println("problem...");
+					}
 			}
 	}

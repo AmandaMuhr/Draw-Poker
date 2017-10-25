@@ -6,6 +6,7 @@ public class CardDealer
 		static int randomNumber = (int) (Math.random() * 50);
 		static boolean stillPlayingPart1 = true;
 		static boolean stillPlayingPart2 = true;
+		public static boolean onSecondLoop = false;
 
 		public static void main(String[] args)
 			{
@@ -29,19 +30,17 @@ public class CardDealer
 							{
 								HandValueComparisons.doYouWantToPlayAgain();
 								stillPlayingPart1 = true;
-								stillPlayingPart2 = false;
 							} else if (Betting.compFold)
 							{
 								Betting.calculatePot();
 								stillPlayingPart1 = true;
-								stillPlayingPart2 = false;
 							} else
 							{
 								Betting.calculatePot();
 								HandValueComparisons.handValueComparisons();
 								stillPlayingPart1 = true;
 							}
-					}
+						
 				
 				while (stillPlayingPart2)
 					{
@@ -57,58 +56,68 @@ public class CardDealer
 								if (!Betting.compFold)
 									{
 										Betting.playerBetting();
-										Betting.calculatePot2();
-									}
-								if (Betting.playerBet == 0)
-									{
-										HandValueComparisons.doYouWantToPlayAgain();
-										stillPlayingPart2 = true;
-									} else if (Betting.compFold)
-									{
-
-										Betting.calculatePot2();
-										stillPlayingPart2 = true;
-									} else
-									{
-										Betting.calculatePot2();
-										HandValueComparisons.handValueComparisons();
-										stillPlayingPart2 = true;
-									}
-							} else if (!TradeCards.noCardTrade)
-							{
-								Hand.sortHand1();
-								Hand.sortHand2();
-								HandValueAssignments.mainButNotReally();
-								DisplayDeck.menu();
-								Betting.compBetting();
-								if (!Betting.compFold)
-									{
-										Betting.playerBetting();
-									}
-								if (Betting.playerBet == 0)
-									{
-										HandValueComparisons.doYouWantToPlayAgain();
-										stillPlayingPart2 = true;
-									} else if (Betting.compFold)
-									{
-
+										onSecondLoop = true;
 										Betting.calculatePot();
+									}
+								if (Betting.playerBet == 0)
+									{
+										HandValueComparisons.doYouWantToPlayAgain();
+										stillPlayingPart2 = true;
+									} else if (Betting.compFold)
+									{
+										onSecondLoop = true;
+										Betting.calculatePot();
+										Betting.playerMoney = Betting.playerMoney + Betting.pot;
 										stillPlayingPart2 = true;
 									} else
 									{
-										Betting.calculatePot2();
-										HandValueComparisons.handValueComparisons();
-										stillPlayingPart2 = true;
+										onSecondLoop = true;
+										Betting.calculatePot();
+												HandValueComparisons.handValueComparisons();
+												stillPlayingPart2 = true;
+											}
+									} else if (!TradeCards.noCardTrade)
+									{
+										Hand.sortHand1();
+										Hand.sortHand2();
+										HandValueAssignments.mainButNotReally();
+										DisplayDeck.menu();
+										Betting.compBetting();
+										if (!Betting.compFold)
+											{
+												Betting.playerBetting();
+											}
+										if (Betting.playerBet == 0)
+											{
+												HandValueComparisons.doYouWantToPlayAgain();
+												stillPlayingPart2 = true;
+											} else if (Betting.compFold)
+											{
+												onSecondLoop = true;
+												Betting.calculatePot();
+												stillPlayingPart2 = true;
+											} else
+											{
+												onSecondLoop = true;
+												Betting.calculatePot();
+												HandValueComparisons.handValueComparisons();
+												stillPlayingPart2 = true;
+											}
 									}
+						if (!HandValueComparisons.notKeepPlaying)
+							{
+								System.out.println("Bye!");
+								System.exit(0);
+							}
+						
+						if (HandValueComparisons.notKeepPlaying)
+							{
+								System.out.println("See you next time!");
+								System.exit(0);
+							}
 							}
 					}
-				
 
-				if (HandValueComparisons.notKeepPlaying)
-					{
-						System.out.println("See you next time!");
-						System.exit(0);
-					}
 			}
 
 		public static void shuffleCards()

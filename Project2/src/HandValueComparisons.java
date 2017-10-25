@@ -51,34 +51,40 @@ public class HandValueComparisons
 					{
 						System.out.println("Error2...");
 					}
+				
+				System.out.println("Here is the computer's hand:");
+				DisplayDeck.displayHand2();
 			}
 
 		public static void doYouWantToPlayAgain()
 			{
-				Hand.hand1.clear();
-				Hand.hand2.clear();
+//				Hand.hand1.clear();
+//				Hand.hand2.clear();
 				System.out.println("");
-				System.out.println("Would you like to keep playing?");
-				System.out.println("1. Yes");
-				System.out.println("2. No");
-				Scanner userInput = new Scanner(System.in);
-				int choice = userInput.nextInt();
-
-				if (choice == 1)
-					{
-						System.out.println("All right, let's keep playing!");
-						CardDealer.stillPlayingPart1 = true;
-						notKeepPlaying = false;
-					} else if (choice == 2)
-					{
-						System.out.println("All right, see you next time!");
-						CardDealer.stillPlayingPart1 = false;
-						notKeepPlaying = true;
-						System.exit(0);
-					} else
-					{
-						System.out.println("Sorry, this is not a valid input...");
-						doYouWantToPlayAgain();
-					}
+				System.out.println("See you later!");
+//				System.out.println("Would you like to keep playing?");
+//				System.out.println("1. Yes");
+//				System.out.println("2. No");
+//				Scanner userInput = new Scanner(System.in);
+//				int choice = userInput.nextInt();
+//
+//				if (choice == 1)
+//					{
+//						System.out.println("All right, let's keep playing!");
+//						Hand.hand1.clear();
+//						Hand.hand2.clear();
+//						CardDealer.stillPlayingPart1 = true;
+//						notKeepPlaying = false;
+//					} else if (choice == 2)
+//					{
+//						System.out.println("All right, see you next time!");
+//						CardDealer.stillPlayingPart1 = false;
+//						notKeepPlaying = true;
+//						System.exit(0);
+//					} else
+//					{
+//						System.out.println("Sorry, this is not a valid input...");
+//						doYouWantToPlayAgain();
+//					}
 			}
 	}
